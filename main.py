@@ -15,10 +15,10 @@ and summarizing the entire video and providing the important summary in points
 with heading. Please provide the summary of the text given here:  """
 st.header("Youtube Video Summarizer")
 
-    url = st.text_input("Enter the URL of the youtube video: ")
+url = st.text_input("Enter the URL of the youtube video: ")
     
-    extra = st.text_input("enter extra instructions here")
-    system_prompt = system_prompt + extra
+extra = st.text_input("enter extra instructions here")
+system_prompt = system_prompt + extra
 
     def get_transcript(url):
         video_id = url.split("/")[3]
@@ -35,6 +35,6 @@ st.header("Youtube Video Summarizer")
         ans = result
         return ans.content
 
-    st.write(get_summary(get_transcript(url)))
+st.write(get_summary(get_transcript(url)))
 
 
