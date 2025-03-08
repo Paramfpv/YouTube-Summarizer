@@ -26,6 +26,7 @@ try:
         transcript = YouTubeTranscriptApi.get_transcript(video_id)
         formatter = TextFormatter()
         final = formatter.format_transcript(transcript)
+        st.write("transcript loaded")
         return final
 
     def get_summary(final):
