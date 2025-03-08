@@ -15,7 +15,6 @@ and summarizing the entire video and providing the important summary in points
 with heading. Please provide the summary of the text given here:  """
 st.header("Youtube Video Summarizer")
 
-try:
     url = st.text_input("Enter the URL of the youtube video: ")
     
     extra = st.text_input("enter extra instructions here")
@@ -38,6 +37,4 @@ try:
 
     st.write(get_summary(get_transcript(url)))
 
-except:
-    st.write("Please enter the correct URL of the video")
 
