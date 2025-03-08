@@ -20,20 +20,20 @@ url = st.text_input("Enter the URL of the youtube video: ")
 extra = st.text_input("enter extra instructions here")
 system_prompt = system_prompt + extra
 
-    def get_transcript(url):
-        video_id = url.split("/")[3]
-        transcript = YouTubeTranscriptApi.get_transcript(video_id)
-        formatter = TextFormatter()
-        final = formatter.format_transcript(transcript)
-        st.write("transcript loaded")
-        return final
+def get_transcript(url):
+    video_id = url.split("/")[3]
+    transcript = YouTubeTranscriptApi.get_transcript(video_id)
+    formatter = TextFormatter()
+    final = formatter.format_transcript(transcript)
+    st.write("transcript loaded")
+    return final
 
-    def get_summary(final):
-        prompt = system_prompt + final
-        llm = ChatMistralAI(model_name="mistral-large-latest")
-        result = llm.invoke(prompt)
-        ans = result
-        return ans.content
+def get_summary(final):
+    prompt = system_prompt + final
+    llm = ChatMistralAI(model_name="mistral-large-latest")
+    result = llm.invoke(prompt)
+    ans = result
+    return ans.content
 
 st.write(get_summary(get_transcript(url)))
 
