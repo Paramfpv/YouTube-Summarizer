@@ -36,7 +36,14 @@ try:
         ans = result
         return ans.content
 
-    st.write(get_summary(get_transcript(url)))
+    if st.button("Print Transcript"):
+        transcript = get_transcript(url)
+        st.write(transcript)
+
+    if st.button("Print Summary"):
+        transcript = get_transcript(url)
+        summary = get_summary(transcript)
+        st.write(summary)
 
 except:
     st.write("Please enter the correct URL of the video")
